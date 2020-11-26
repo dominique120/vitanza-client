@@ -1,11 +1,11 @@
- let Auth_Bearer =
-   "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDY0NTYxMjcsImlhdCI6MTYwNjQyMDEyNywiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.U6UJ79J1lCsR_9j2_ZUtJsGpWWFVWV9rSM7hSmhk2ZSBQkBsYqHiYxZDXINVoV9Na0cRe_r8cEhtZsYL7Af2Iw";
+ let Auth_Bearer = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDY0NTgzNDksImlhdCI6MTYwNjQyMjM0OSwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.c5MUzz3-BI2oLrKCsjP6tl5flxRba74l1OG3V9rAbYrBrOawP3o9PWq7MpxE6QLfFLPG19zlckx997Jv8TkMTA";
  const proxyurl = "https://cors-anywhere.herokuapp.com/";
  const urlCustomers = "http://190.238.243.118/vts/api/v1/customers";
-
- var contenido = document.querySelector('#contenido')
+ 
 
  function traer() {
+
+   
 
   document.getElementById("tabla-listar").style.display = "block";
   document.getElementById("tabla-crear").style.display = "none";
@@ -32,10 +32,10 @@
 
 
  function tabla(clientes) {
-   console.log(clientes) 
-   for (let cliente of clientes) {
-
-
+   
+   var contenido = document.querySelector('#contenido');
+   console.log(clientes);
+   for (let cliente of clientes) { 
      contenido.innerHTML += `
 
                    <tr>
