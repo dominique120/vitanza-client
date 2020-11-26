@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
+
+    <!-- Ionic icons-->
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.png" />
+
+    <title>Vitanza</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <img src="../assets/images/logo-dark.svg" class="logo-brand" alt="logo">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <img src="assets/images/menu.svg">
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Clients.html">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Orders.html">Ordenes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Products.html">Productos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="mt-5" id="portfolio">
+        <div class="container ">
+            <div class="container my-5 text-center">
+                <button class="btn btn-dark w-100" onclick="traer()">Listar Ordenes</button>
+                <div class="mt-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Código Orden</th>
+                                <th scope="col">Fecha de creación</th>
+                                <th scope="col">Fecha de envío</th>
+                                <th scope="col">Comentarios</th>
+                                <th scope="col">Estado</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="contenido">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <script>
+                var contenido = document.querySelector('#contenido')
+
+ 
+
+                function traer() { 
+                    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+                const url = "http://190.238.243.118/vts/api/v1/orderdetails/by_order?id=cadc9933-91ad-433f-befb-c8449e70a192";
+                fetch(proxyurl + url, {
+                        method: 'GET',
+                        dataType: "jsonp",
+                        crossDomain: true,
+                        cors: true,
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Access-Control-Allow-Origin": "*",
+                            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDYzOTcyMzgsImlhdCI6MTYwNjM2MTIzOCwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.UAsGzCb6RDDZWqQQLrggV-n4jC8oAtm7ftzHtEO8RydBKCimdbrujsisgpL0Whp7wF1qZpc8pI6DeeIfBInyKQ'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(ordenes => { 
+                            console.log(ordenes);
+                            
+                            tabla(ordenes)
+
+                        });
+                    
+                }
+
+                function tabla(ordenes) {
+
+                    
+
+ 
+                    contenido.innerHTML = ''
+                    for (let orden of ordenes) {
+ 
+  
+                        if (orden.hasOwnProperty("DateDelivered") && orden.hasOwnProperty("Notes")) {
+                            contenido.innerHTML += `
+                            
+                        
+                           <tr>
+                                <th scope="row">${orden.OrderId_uuid.slice(-8)}</th>  
+                                <td>${orden.DatePlaced} </td> 
+                                <td>${orden.DateDelivered}</td>
+                                <td>${orden.Notes}</td>
+                                <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
+                            </tr>
+                            
+                            `
+                        } 
+
+                        else if (orden.hasOwnProperty("DateDelivered") && !orden.hasOwnProperty("Notes")){
+                            contenido.innerHTML += `
+                            
+                        
+                            <tr>
+                                 <th scope="row">${orden.OrderId_uuid.slice(-8)}</th>  
+                                 <td>${orden.DatePlaced} </td> 
+                                 <td>${orden.DateDelivered}</td>
+                                 <td>No se registra</td>
+                                 <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
+                             </tr>
+                             
+                             `
+                        }
+
+                        else if (orden.hasOwnProperty("Notes") && !orden.hasOwnProperty("DateDelivered")){
+                            contenido.innerHTML += `
+                            
+                        
+                            <tr>
+                                 <th scope="row">${orden.OrderId_uuid.slice(-8)}</th>  
+                                 <td>${orden.DatePlaced } </td>  
+                                 <td>No se registra</td>
+                                 <td>${orden.Notes}</td>
+                                 <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
+                             </tr>
+                             
+                             `
+                        }
+
+                        else {
+                            contenido.innerHTML += `
+                            
+                        
+                            <tr>
+                                <th scope="row">${orden.OrderId_uuid.slice(-8)}</th>  
+                                <td>${orden.DatePlaced } </td>  
+                                 <td>No se registra</td>
+                                 <td>No se registra</td>
+                                 <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
+                            </tr>
+                             
+                             `
+
+                        } 
+                    }
+                }
+            </script>
+
+        </div>
+    </section>
+    <footer class="bgDark">
+        <div class="container">
+            <ul class="list-inline">
+                <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">Portfolio</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">About us</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">Pricing</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">Contact</a></li>
+            </ul>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#"><img src="../assets/images/instagram.svg"
+                            class="img-fluid"></a></li>
+                <li class="list-inline-item"><a href="#"><img src="../assets/images/twitter.svg" class="img-fluid"></a>
+                </li>
+                <li class="list-inline-item"><a href="#"><img src="../assets/images/youtube.svg" class="img-fluid"></a>
+                </li>
+                <li class="list-inline-item"><a href="#"><img src="../assets/images/dribbble.svg" class="img-fluid"></a>
+                </li>
+                <li class="list-inline-item"><a href="#"><img src="../assets/images/facebook.svg" class="img-fluid"></a>
+                </li>
+            </ul>
+            <small>©2020 All Rights Reserved. </small>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>
