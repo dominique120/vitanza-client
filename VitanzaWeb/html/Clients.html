@@ -1,234 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Style -->
-    <link rel="stylesheet" href="../assets/css/styles.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 
-    <!-- Google fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600"
-      rel="stylesheet"
-    />
+  <!-- Style -->
+  <link rel="stylesheet" href="../assets/css/styles.css" />
 
-    <!-- Ionic icons-->
-    <link
-      href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet" />
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.png" />
+  <!-- Ionic icons-->
+  <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="../assets/js/app.js"></script>
 
-    <title>Vitanza</title>
-  </head>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../assets/images/favicon.png" />
 
-  <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <img
-          src="../assets/images/logo-dark.svg"
-          class="logo-brand"
-          alt="logo"
-        />
+  <title>Vitanza</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <img src="../assets/images/logo-dark.svg" class="logo-brand" alt="logo" />
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="assets/images/menu.svg" />
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../Index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Clients.html">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Orders.html">Ordenes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Products.html">Productos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ 
+  
+ 
+
+  <section class="mt-5" id="portfolio">
+    <div class="container">
+      <div class="container my-5 text-center">
+
+
         <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <img src="assets/images/menu.svg" />
-        </button>
+        class="btn btn-primary btn-sm"  onclick="traer()">
+        Listar Clientes
+      </button>   
+      <button
+        class="btn btn-primary btn-sm" onclick="crearForm()">
+        Crear Clientes
+      </button>  
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="../Index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Clients.html">Clientes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Orders.html">Ordenes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Products.html">Productos</a>
-            </li>
-          </ul>
-        </div>
+
+        <div class="mt-5" id="tabla-listar">
+          <table class="table" id="listar">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Distrito</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Celular</th>
+                <th scope="col">ID</th>
+              </tr>
+            </thead>
+            <tbody id="contenido"></tbody>
+          </table>
+        </div> 
+
+        <div class="mt-5" id="tabla-crear">
+          <form action="" method="post">
+            <div class="form-group">
+                <label for="nombreCliente">Nombre</label>
+                <input type="text" class="form-control" id="nombreCliente">
+            </div>
+
+            <div class="form-group">
+              <label for="apellidoCliente">Apellido</label>
+              <input type="text" class="form-control" id="apellidoCliente">
+            </div>
+
+            <div class="form-group">
+              <label for="distritoCliente">Distrito</label>
+              <input type="text" class="form-control" id="distritoCliente">
+            </div>
+
+            <div class="form-group">
+                <label for="direccionCliente">Dirección</label>
+                <input type="text" class="form-control" id="direccionCliente">
+            </div>
+
+            <div class="form-group">
+              <label for="celularCliente">Celular</label>
+              <input type="text" class="form-control" id="celularCliente">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+        </form>
+        </div> 
+ 
+
+
+
       </div>
-    </nav>
+ 
+    </div>
+  </section>
+  <footer class="bgDark">
+    <div class="container">
+      <ul class="list-inline">
+        <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
+        <li class="list-inline-item footer-menu">
+          <a href="#">Portfolio</a>
+        </li>
+        <li class="list-inline-item footer-menu"><a href="#">About us</a></li>
+        <li class="list-inline-item footer-menu"><a href="#">Pricing</a></li>
+        <li class="list-inline-item footer-menu"><a href="#">Contact</a></li>
+      </ul>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="#"><img src="../assets/images/instagram.svg" class="img-fluid" /></a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#"><img src="../assets/images/twitter.svg" class="img-fluid" /></a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#"><img src="../assets/images/youtube.svg" class="img-fluid" /></a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#"><img src="../assets/images/dribbble.svg" class="img-fluid" /></a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#"><img src="../assets/images/facebook.svg" class="img-fluid" /></a>
+        </li>
+      </ul>
+      <small>©2020 All Rights Reserved. </small>
+    </div>
+  </footer>
 
-    <section class="mt-5" id="portfolio">
-      <div class="container">
-        <div class="container my-5 text-center">
-          <button class="btn btn-dark w-100" onclick="traer()">
-            Listar Clientes
-          </button>
-          <div class="mt-5">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellido</th>
-                  <th scope="col">Distrito</th>
-                  <th scope="col">Dirección</th>
-                  <th scope="col">Celular</th>
-                  <th scope="col">ID</th>
-                </tr>
-              </thead>
-              <tbody id="contenido"></tbody>
-            </table>
-          </div>
-        </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- <script src="assets/js/jquery.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+</body>
 
-        <script>
-          var contenido = document.querySelector('#contenido')
-          var url = 'http://190.238.243.118/vts/api/v1/customers';
-
-          function traer() {
-              const proxyurl = "https://cors-anywhere.herokuapp.com/";
-              const url = "http://190.238.243.118/vts/api/v1/customers";
-              fetch(proxyurl + url, {
-                  method: 'GET',
-                  dataType: "jsonp",
-                  crossDomain: true,
-                  cors: true,
-                  headers: {
-                      "Content-Type": "application/json",
-                      "Access-Control-Allow-Origin": "*",
-                      "Authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDYzOTcyMzgsImlhdCI6MTYwNjM2MTIzOCwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.UAsGzCb6RDDZWqQQLrggV-n4jC8oAtm7ftzHtEO8RydBKCimdbrujsisgpL0Whp7wF1qZpc8pI6DeeIfBInyKQ"
-                  }
-              })
-                  .then(response => response.json())
-                  .then(clientes => {
-                      tabla(clientes)
-                  });
-
-          }
-
-          function tabla(clientes) {
-              // console.log(clientes)
-              contenido.innerHTML = ''
-              for (let cliente of clientes) {
-                  contenido.innerHTML += `
-
-                     <tr>
-                          <th scope="row">${cliente.FirstName}</th>
-                          <td>${cliente.LastNames}</td>
-                          <td>${cliente.District}</td>
-                          <td>${cliente.PrimaryAddress}</td>
-                          <td>${cliente.PrimaryPhone}</td>
-                          <td>
-                              <a href="javascript:void(0);" class="btn-delete"  data-id="${cliente.ClientId_uuid}">Eliminar</a></td>
-                      </tr>
-                      `
-              }
-          }
-
-          $(document).on("click", ".btn-delete", function (event) {
-
-              const url2 = "http://190.238.243.118/vts/api/v1/customers";
-              var _this = $(this).attr("data-id");
-              console.log("id: ", _this);
-/*
-              $.ajax({
-                  type: 'delete',
-                  url: "http://190.238.243.118/vts/api/v1/customers?id=" + _this,
-                  cors: true,
-                  dataType: "jsonp",
-                  crossDomain: true,
-                  headers: {
-                          "Content-Type": "application/json",
-                          "Access-Control-Allow-Origin": "*",
-                          "Authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDYzOTcyMzgsImlhdCI6MTYwNjM2MTIzOCwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.UAsGzCb6RDDZWqQQLrggV-n4jC8oAtm7ftzHtEO8RydBKCimdbrujsisgpL0Whp7wF1qZpc8pI6DeeIfBInyKQ"
-                      },
-                  cache: false,
-
-                  success: function (data) {
-                      console.log("Completo");
-                  }
-              });
-*/
-
-const response = fetch("https://cors-anywhere.herokuapp.com/http://190.238.243.118/vts/api/v1/customers?id=" + _this, {
-            method: 'DELETE',
-            headers: {
-                          "Access-Control-Allow-Origin": "*",
-                          "Authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDYzOTcyMzgsImlhdCI6MTYwNjM2MTIzOCwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.UAsGzCb6RDDZWqQQLrggV-n4jC8oAtm7ftzHtEO8RydBKCimdbrujsisgpL0Whp7wF1qZpc8pI6DeeIfBInyKQ"
-                      }
-          });
-
-
-          });
-
-
-
-
-
-        </script>
-      </div>
-    </section>
-    <footer class="bgDark">
-      <div class="container">
-        <ul class="list-inline">
-          <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
-          <li class="list-inline-item footer-menu">
-            <a href="#">Portfolio</a>
-          </li>
-          <li class="list-inline-item footer-menu"><a href="#">About us</a></li>
-          <li class="list-inline-item footer-menu"><a href="#">Pricing</a></li>
-          <li class="list-inline-item footer-menu"><a href="#">Contact</a></li>
-        </ul>
-        <ul class="list-inline">
-          <li class="list-inline-item">
-            <a href="#"
-              ><img src="../assets/images/instagram.svg" class="img-fluid"
-            /></a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#"
-              ><img src="../assets/images/twitter.svg" class="img-fluid"
-            /></a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#"
-              ><img src="../assets/images/youtube.svg" class="img-fluid"
-            /></a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#"
-              ><img src="../assets/images/dribbble.svg" class="img-fluid"
-            /></a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#"
-              ><img src="../assets/images/facebook.svg" class="img-fluid"
-            /></a>
-          </li>
-        </ul>
-        <small>©2020 All Rights Reserved. </small>
-      </div>
-    </footer>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="assets/js/jquery.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-  </body>
 </html>
