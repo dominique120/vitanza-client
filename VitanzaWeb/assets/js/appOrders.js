@@ -41,7 +41,11 @@ function traer() {
                 <td>${orden.DateDelivered}</td>
                 <td>${orden.Notes}</td>
                 <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
-            </tr>
+                <td>
+                            
+                <a href="javascript:void(0);" class="btn-delete"  data-id="${orden.OrderId_uuid}">Eliminar</a></td> 
+
+                </tr>
             
             `
         } 
@@ -56,7 +60,11 @@ function traer() {
                  <td>${orden.DateDelivered}</td>
                  <td>No se registra</td>
                  <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
-             </tr>
+                 <td>
+                            
+                 <a href="javascript:void(0);" class="btn-delete"  data-id="${orden.OrderId_uuid}">Eliminar</a></td> 
+ 
+                 </tr>
              
              `
         }
@@ -71,7 +79,11 @@ function traer() {
                  <td>No se registra</td>
                  <td>${orden.Notes}</td>
                  <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
-             </tr>
+                 <td>
+                            
+                 <a href="javascript:void(0);" class="btn-delete"  data-id="${orden.OrderId_uuid}">Eliminar</a></td> 
+ 
+                 </tr>
              
              `
         }
@@ -86,7 +98,11 @@ function traer() {
                  <td>No se registra</td>
                  <td>No se registra</td>
                  <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
-            </tr>
+            <td>
+                            
+                <a href="javascript:void(0);" class="btn-delete"  data-id="${orden.OrderId_uuid}">Eliminar</a></td> 
+
+                </tr>
              
              `
 
@@ -102,19 +118,19 @@ function traer() {
   
   //event.preventDefault()
    
-    var ProductName = document.getElementById('ProductName').value
-    var ProductDescription = document.getElementById('ProductDescription').value
-    var AvailableStock = document.getElementById('AvailableStock').value
-    var Price = document.getElementById('Price').value 
+    var DatePlaced = document.getElementById('DatePlaced').value
+    var DateDelivered = document.getElementById('DateDelivered').value
+    var Notes = document.getElementById('Notes').value
+    var Delivered = document.getElementById('Delivered').value 
   
   
     fetch(proxyurl + urlOrders, {
       method: 'POST', 
       body: JSON.stringify({ 
-        ProductName: ProductName,
-        ProductDescription: ProductDescription,
-        AvailableStock: AvailableStock,
-        Price: Price, 
+        DatePlaced: DatePlaced,
+        DateDelivered: DateDelivered,
+        Notes: Notes,
+        Delivered: Delivered, 
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8', 

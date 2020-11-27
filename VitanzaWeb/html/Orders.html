@@ -3,20 +3,23 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 
     <!-- Style -->
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css" />
 
     <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet" />
 
     <!-- Ionic icons-->
-    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="../assets/js/apiKey.js"></script>
+    <script src="../assets/js/appOrders.js"></script>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../assets/images/favicon.png" />
@@ -49,7 +52,7 @@
                     </li>
                     <li class="nav-item" id="login">
                         <a class="nav-link" href="Login.html">Login</a>
-                      </li>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -67,10 +70,10 @@
                     Crear Ordenes
                 </button>
 
-                
-                
-                
-                <div class="mt-5" class="tabla-listar">
+
+
+
+                <div class="mt-5" id="tabla-listar">
                     <table class="table">
                         <thead>
                             <tr>
@@ -79,6 +82,7 @@
                                 <th scope="col">Fecha de envío</th>
                                 <th scope="col">Comentarios</th>
                                 <th scope="col">Estado</th>
+                                <th scope="col">DEL</th>
 
                             </tr>
                         </thead>
@@ -91,25 +95,25 @@
 
                 <div class="mt-5" id="tabla-crear">
                     <form id="form" action="" method="POST">
- 
+
                         <div class="form-group">
-                            <label for="LastNames">Producto</label>
+                            <label for="LastNames">Fecha de Registro</label>
                             <input type="date" name="DatePlaced" class="form-control" id="DatePlaced">
                         </div>
 
                         <div class="form-group">
-                            <label for="District">Descripción</label>
+                            <label for="District">Fecha de Entrega</label>
                             <input type="date" name="DateDelivered" class="form-control" id="DateDelivered">
                         </div>
 
                         <div class="form-group">
-                            <label for="PrimaryAddress">Stock</label>
+                            <label for="PrimaryAddress">Anotaciones</label>
                             <input type="text" name="Notes" class="form-control" id="Notes">
                         </div>
- 
+
                         <div class="form-group">
-                            <label for="PrimaryPhone">Precio</label>
-                            <input type="checkbox" checked="true" name="Delivered" class="form-control" id="Delivered">
+                            <label for="PrimaryPhone">Entregado</label>
+                            <input type="checkbox" value="1" name="Delivered" class="form-control" id="Delivered">
                         </div>
 
                         <button type="button" class="btn btn-primary btn-crear">Enviar</button>
@@ -120,7 +124,7 @@
 
 
             </div>
-  
+
 
         </div>
     </section>

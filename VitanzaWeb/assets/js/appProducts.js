@@ -38,7 +38,11 @@ function traer() {
                 <td>${producto.ProductDescription}</td> 
                 <td>${producto.AvailableStock}</td>
                 <td>${producto.Price}</td> 
-            </tr>
+                <td>
+                            
+                <a href="javascript:void(0);" class="btn-delete"  data-id="${producto.ProductId_uuid}">Eliminar</a></td> 
+
+                </tr>
             
             `
     }
