@@ -18,6 +18,9 @@
   <!-- Ionic icons-->
   <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="../assets/js/appLogin.js"></script>
+  <script src="../assets/js/apiKey.js"></script>
+
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="../assets/images/favicon.png" />
@@ -49,7 +52,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="Products.html">Productos</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" id="login">
                 <a class="nav-link" href="Login.html">Login</a>
               </li>
             </ul>
@@ -61,18 +64,19 @@
   <section class="mt-5" id="portfolio"> 
     <div class="container">
        
-      <form class="form-signin" method="post" action="/login">
+      <form class="form-signin" method="post" action="/index.html">
          
         <p>
             <label for="username" class="sr-only">Username</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+            <input type="text" id="username" name="username" class="form-control" placeholder="username" required="" autofocus="">
         </p>
         <p>
             <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+            <input type="password" id="password" name="password" class="form-control" placeholder="password" required="">
         </p>
-        <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <br> 
+        <button type="button" class="btn btn-primary btn-login">Enviar</button>
+
     </form>
 
 

@@ -1,12 +1,4 @@
- const proxyurl = "https://cors-anywhere.herokuapp.com/";
- const urlCustomers = "http://vts-alb-316342429.us-east-1.elb.amazonaws.com/vts/api/v1/customers";
- 
-
-
-
- function traer() {
-
-   
+ function traer() { 
 
   document.getElementById("tabla-listar").style.display = "block";
   document.getElementById("tabla-crear").style.display = "none";
@@ -84,17 +76,11 @@ $(document).on("click", ".btn-crear", function (event) {
       'Authorization': "Bearer " + Auth_Bearer,
     },
   })
-    .then((response) => {
-      windows.loca
-    })
-    .then((json) => console.log(json))
-
-});
-  
-<a onclick='reloadDIV ();'>reload div</a>
-
-  
-
+  .then((response) => response.json())
+    .then((json) => console.log(json));
+    alert('Enviado');
+    window.location.href='Clients.html';
+});  
 
  function crearForm() { 
 
@@ -103,9 +89,7 @@ $(document).on("click", ".btn-crear", function (event) {
 
  };
 
- // DELETE
-
-
+ // DELETE 
  $(document).on("click", ".btn-delete", function (event) {
 
    var _this = $(this).attr("data-id");
@@ -119,4 +103,6 @@ $(document).on("click", ".btn-crear", function (event) {
          "Authorization": "Bearer " + Auth_Bearer,
        }
      });
+     window.location.href='Clients.html';
+
  });

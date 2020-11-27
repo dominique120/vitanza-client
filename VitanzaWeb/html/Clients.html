@@ -18,8 +18,8 @@
   <!-- Ionic icons-->
   <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src="../assets/js/apiKey.js"></script>  
-  <script src="../assets/js/appClients.js"></script> 
+  <script src="../assets/js/apiKey.js"></script>
+  <script src="../assets/js/appClients.js"></script>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="../assets/images/favicon.png" />
@@ -50,27 +50,31 @@
           <li class="nav-item">
             <a class="nav-link" href="Products.html">Productos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Login.html">Login</a>
+          </li>
+          <li class="nav-item" id="login">
+            <a class="nav-link" href="Login.html">Login</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
- 
-  
- 
+
+
+
 
   <section class="mt-5" id="portfolio">
     <div class="container">
       <div class="container my-5 text-center">
 
 
-        <button
-        class="btn btn-primary btn-sm"  onclick="traer()">
-        Listar Clientes
-      </button>   
-      <button
-        class="btn btn-primary btn-sm" onclick="crearForm()">
-        Crear Clientes
-      </button>  
+        <button class="btn btn-primary btn-sm" onclick="traer()">
+          Listar Clientes
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="crearForm()">
+          Crear Clientes
+        </button>
 
 
         <div class="mt-5" id="tabla-listar">
@@ -89,42 +93,42 @@
 
             </tbody>
           </table>
-        </div> 
- 
-          <div class="mt-5" id="tabla-crear" >  
-            <form  id="form" action="" method="POST">
-              <div class="form-group">
-                  <label for="FirstName">Nombre</label>
-                  <input type="text" name="FirstName" class="form-control" id="FirstName">
-              </div> 
-  
-              <div class="form-group">
-                <label for="LastNames">Apellido</label>
-                <input type="text" name="LastNames" class="form-control" id="LastNames">
-              </div>
-  
-              <div class="form-group">
-                <label for="District">Distrito</label>
-                <input type="text" name="District" class="form-control" id="District">
-              </div>
-  
-              <div class="form-group">
-                  <label for="PrimaryAddress">Dirección</label>
-                  <input type="text" name="PrimaryAddress" class="form-control" id="PrimaryAddress">
-              </div>
-  
-              <div class="form-group">
-                <label for="PrimaryPhone">Celular</label>
-                <input type="number" name="PrimaryPhone" class="form-control" id="PrimaryPhone">
-              </div>
-  
-              <button type="button" class="btn btn-primary btn-crear">Enviar</button>
+        </div>
+
+        <div class="mt-5" id="tabla-crear">
+          <form id="form" action="" method="POST">
+            <div class="form-group">
+              <label for="FirstName">Nombre</label>
+              <input type="text" name="FirstName" class="form-control" id="FirstName">
+            </div>
+
+            <div class="form-group">
+              <label for="LastNames">Apellido</label>
+              <input type="text" name="LastNames" class="form-control" id="LastNames">
+            </div>
+
+            <div class="form-group">
+              <label for="District">Distrito</label>
+              <input type="text" name="District" class="form-control" id="District">
+            </div>
+
+            <div class="form-group">
+              <label for="PrimaryAddress">Dirección</label>
+              <input type="text" name="PrimaryAddress" class="form-control" id="PrimaryAddress">
+            </div>
+
+            <div class="form-group">
+              <label for="PrimaryPhone">Celular</label>
+              <input type="number" name="PrimaryPhone" class="form-control" id="PrimaryPhone">
+            </div>
+
+            <button type="button" class="btn btn-primary btn-crear">Enviar</button>
 
           </form>
-          </div>  
+        </div>
 
       </div>
- 
+
     </div>
   </section>
   <footer class="bgDark">

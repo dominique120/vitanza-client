@@ -47,6 +47,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Products.html">Productos</a>
                     </li>
+                    <li class="nav-item" id="login">
+                        <a class="nav-link" href="Login.html">Login</a>
+                      </li>
                 </ul>
             </div>
         </div>
@@ -55,8 +58,19 @@
     <section class="mt-5" id="portfolio">
         <div class="container ">
             <div class="container my-5 text-center">
-                <button class="btn btn-dark w-100" onclick="traer()">Listar Ordenes</button>
-                <div class="mt-5">
+
+
+                <button class="btn btn-primary btn-sm" onclick="traer()">
+                    Listar Ordenes
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="crearForm()">
+                    Crear Ordenes
+                </button>
+
+                
+                
+                
+                <div class="mt-5" class="tabla-listar">
                     <table class="table">
                         <thead>
                             <tr>
@@ -73,107 +87,40 @@
                         </tbody>
                     </table>
                 </div>
+
+
+                <div class="mt-5" id="tabla-crear">
+                    <form id="form" action="" method="POST">
+ 
+                        <div class="form-group">
+                            <label for="LastNames">Producto</label>
+                            <input type="date" name="DatePlaced" class="form-control" id="DatePlaced">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="District">Descripción</label>
+                            <input type="date" name="DateDelivered" class="form-control" id="DateDelivered">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PrimaryAddress">Stock</label>
+                            <input type="text" name="Notes" class="form-control" id="Notes">
+                        </div>
+ 
+                        <div class="form-group">
+                            <label for="PrimaryPhone">Precio</label>
+                            <input type="checkbox" checked="true" name="Delivered" class="form-control" id="Delivered">
+                        </div>
+
+                        <button type="button" class="btn btn-primary btn-crear">Enviar</button>
+
+                    </form>
+                </div>
+
+
+
             </div>
-
-            <script>
-                var contenido = document.querySelector('#contenido')
-
- 
-
-                function traer() { 
-                const proxyurl = "https://cors-anywhere.herokuapp.com/";
-                const url = "http://vts-alb-316342429.us-east-1.elb.amazonaws.com/vts/api/v1/orders";
-                fetch(proxyurl + url, {
-                        method: 'GET',
-                        dataType: "jsonp",
-                        crossDomain: true,
-                        cors: true,
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Access-Control-Allow-Origin": "*",
-                            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDY0OTQ1MTUsImlhdCI6MTYwNjQ1ODUxNSwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.wB4fmWOrN4nBAD8kFptW_GQtFvy7cCyjHhDC_CfZKqq33iwS92y6b-auNnsXDsyH86FqdkFepmqilrEcVSJ13g'
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(ordenes => { 
-                            console.log(ordenes);
-                            
-                            tabla(ordenes)
-
-                        });
-                    
-                }
-
-                function tabla(ordenes) {
-
- 
-                    contenido.innerHTML = ''
-                    for (let orden of ordenes) {
- 
   
-                        if (orden.hasOwnProperty("DateDelivered") && orden.hasOwnProperty("Notes")) {
-                            contenido.innerHTML += `
-                            
-                        
-                           <tr>
-                                <th scope="row">${orden.OrderId_uuid.slice(-8)}</th>  
-                                <td>${orden.DatePlaced} </td> 
-                                <td>${orden.DateDelivered}</td>
-                                <td>${orden.Notes}</td>
-                                <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
-                            </tr>
-                            
-                            `
-                        } 
-
-                        else if (orden.hasOwnProperty("DateDelivered") && !orden.hasOwnProperty("Notes")){
-                            contenido.innerHTML += `
-                            
-                        
-                            <tr>
-                                 <th scope="row">${orden.OrderId_uuid.slice(-8)}</th>  
-                                 <td>${orden.DatePlaced} </td> 
-                                 <td>${orden.DateDelivered}</td>
-                                 <td>No se registra</td>
-                                 <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
-                             </tr>
-                             
-                             `
-                        }
-
-                        else if (orden.hasOwnProperty("Notes") && !orden.hasOwnProperty("DateDelivered")){
-                            contenido.innerHTML += `
-                            
-                        
-                            <tr>
-                                 <th scope="row">${orden.OrderId_uuid.slice(-8)}</th>  
-                                 <td>${orden.DatePlaced } </td>  
-                                 <td>No se registra</td>
-                                 <td>${orden.Notes}</td>
-                                 <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
-                             </tr>
-                             
-                             `
-                        }
-
-                        else {
-                            contenido.innerHTML += `
-                            
-                        
-                            <tr>
-                                <th scope="row">${orden.OrderId_uuid.slice(-8)}</th>  
-                                <td>${orden.DatePlaced } </td>  
-                                 <td>No se registra</td>
-                                 <td>No se registra</td>
-                                 <td>${orden.Delivered ? "Entregado" : "No Entregado" }</td>
-                            </tr>
-                             
-                             `
-
-                        } 
-                    }
-                }
-            </script>
 
         </div>
     </section>

@@ -165,7 +165,7 @@ footer .list-inline .list-inline-item {
     padding: 10px 15px;
 }
 
-#tabla-listar,#tabla-crear {
+#tabla-crear {
     display: none;
 
 }

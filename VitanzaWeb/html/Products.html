@@ -3,23 +3,23 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 
     <!-- Style -->
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css" />
 
     <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet" />
 
     <!-- Ionic icons-->
-    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.png" />
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="../assets/js/apiKey.js"></script>
+    <script src="../assets/js/appProducts.js"></script>
 
     <title>Vitanza</title>
 </head>
@@ -47,6 +47,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Products.html">Productos</a>
                     </li>
+                    <li class="nav-item" id="login">
+                        <a class="nav-link" href="Login.html">Login</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -55,17 +58,26 @@
     <section class="mt-5" id="portfolio">
         <div class="container ">
             <div class="container my-5 text-center">
-                <button class="btn btn-dark w-100" onclick="traer()">Listar Productos</button>
-                <div class="mt-5">
+
+
+                <button class="btn btn-primary btn-sm" onclick="traer()">
+                    Listar Productos
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="crearForm()">
+                    Crear Productos
+                </button>
+
+
+                <div class="mt-5" id="tabla-listar">
                     <table class="table">
                         <thead>
                             <tr>
-                                
+
                                 <th scope="col">Código</th>
                                 <th scope="col">Producto</th>
                                 <th scope="col">Descripción</th>
                                 <th scope="col">Stock</th>
-                                <th scope="col">Precio</th> 
+                                <th scope="col">Precio</th>
 
                             </tr>
                         </thead>
@@ -74,56 +86,36 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div class="mt-5" id="tabla-crear">
+                    <form id="form" action="" method="POST">
+ 
+                        <div class="form-group">
+                            <label for="LastNames">Producto</label>
+                            <input type="text" name="ProductName" class="form-control" id="ProductName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="District">Descripción</label>
+                            <input type="text" name="ProductDescription" class="form-control" id="ProductDescription">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PrimaryAddress">Stock</label>
+                            <input type="text" name="AvailableStock" class="form-control" id="AvailableStock">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PrimaryPhone">Precio</label>
+                            <input type="text" name="Price" class="form-control" id="Price">
+                        </div>
+
+                        <button type="button" class="btn btn-primary btn-crear">Enviar</button>
+
+                    </form>
+                </div>
+
             </div>
-
-            <script>
-                var contenido = document.querySelector('#contenido')
-
-                function traer() { 
-                    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-                const url = "http://190.238.243.118/vts/api/v1/products";
-                fetch(proxyurl + url, {
-                        method: 'GET',
-                        dataType: "jsonp",
-                        crossDomain: true,
-                        cors: true,
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Access-Control-Allow-Origin": "*",
-                            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDYzOTcyMzgsImlhdCI6MTYwNjM2MTIzOCwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.UAsGzCb6RDDZWqQQLrggV-n4jC8oAtm7ftzHtEO8RydBKCimdbrujsisgpL0Whp7wF1qZpc8pI6DeeIfBInyKQ'
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(productos => { 
-                            console.log(productos);
-                            
-                            tabla(productos)
-
-                        });
-                    
-                }
-
-                function tabla(productos) {
-
-
-                    // console.log(productos)
-                    contenido.innerHTML = ''
-                    for (let producto of productos) {
-                        contenido.innerHTML += `
-                            
-                        
-                           <tr>
-                                <th scope="row">${producto.ProductId_uuid.slice(-8)}</th>  
-                                <td>${producto.ProductName } </td> 
-                                <td>${producto.ProductDescription}</td> 
-                                <td>${producto.AvailableStock}</td>
-                                <td>${producto.Price}</td> 
-                            </tr>
-                            
-                            `
-                    }
-                }
-            </script>
 
         </div>
     </section>
