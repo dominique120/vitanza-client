@@ -82,7 +82,7 @@
 
                 function traer() { 
                 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-                const url = "http://190.238.243.118/vts/api/v1/orders";
+                const url = "http://vts-alb-316342429.us-east-1.elb.amazonaws.com/vts/api/v1/orders";
                 fetch(proxyurl + url, {
                         method: 'GET',
                         dataType: "jsonp",
@@ -91,7 +91,7 @@
                         headers: {
                             "Content-Type": "application/json",
                             "Access-Control-Allow-Origin": "*",
-                            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDYzOTcyMzgsImlhdCI6MTYwNjM2MTIzOCwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.UAsGzCb6RDDZWqQQLrggV-n4jC8oAtm7ftzHtEO8RydBKCimdbrujsisgpL0Whp7wF1qZpc8pI6DeeIfBInyKQ'
+                            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDY0ODUwNjcsImlhdCI6MTYwNjQ0OTA2NywiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.L8tGsDRbl2IU-yAzAHKle0XNpLnPvAh2p3wg8I04i-t--1M2Mkizuo31dtjzhCfbxOd_XS2jUBQCyTOFGqrdDQ'
                         }
                     })
                     .then(response => response.json())

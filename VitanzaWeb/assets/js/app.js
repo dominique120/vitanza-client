@@ -1,6 +1,6 @@
  let Auth_Bearer = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDY0NTgzNDksImlhdCI6MTYwNjQyMjM0OSwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.c5MUzz3-BI2oLrKCsjP6tl5flxRba74l1OG3V9rAbYrBrOawP3o9PWq7MpxE6QLfFLPG19zlckx997Jv8TkMTA";
  const proxyurl = "https://cors-anywhere.herokuapp.com/";
- const urlCustomers = "http://190.238.243.118/vts/api/v1/customers";
+ const urlCustomers = "http://vts-alb-316342429.us-east-1.elb.amazonaws.com/vts/api/v1/customers";
  
 
  function traer() {
@@ -53,8 +53,32 @@
    }
  }
 
+var formData = JSON.stringify($("#myForm").serializeArray());
+console.log(formData);
+
+function submitform(){
+  $.ajax({
+    type: "POST",
+    url: urlCustomers, 
+    data: formData,
+    success: function(){},
+    dataType: "json",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Authorization": "Bearer " + Auth_Bearer,
+    },
+    
+    contentType : "application/json"
+  });
+}
+
+ 
+
  function crearForm() {
 
+
+  
 
    document.getElementById("tabla-listar").style.display = "none";
    document.getElementById("tabla-crear").style.display = "block";
@@ -70,7 +94,7 @@
    console.log("id: ", _this);
 
    const response = fetch(
-     "https://cors-anywhere.herokuapp.com/http://190.238.243.118/vts/api/v1/customers?id=" + _this, {
+     "https://cors-anywhere.herokuapp.com/" + urlCustomers + "?id=" + _this, {
        method: 'DELETE',
        headers: {
          "Access-Control-Allow-Origin": "*",

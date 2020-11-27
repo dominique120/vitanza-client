@@ -85,40 +85,53 @@
               </tr>
             </thead>
             <tbody id="contenido">
-              
+
             </tbody>
           </table>
         </div> 
 
-        <div class="mt-5" id="tabla-crear">
-          <form action="" method="post">
+        <div class="mt-5" id="tabla-crear" >
+
+
+          <form action="/customers.html" method="POST" name="myForm">
+            <p><label for="first_name">First Name:</label>
+            <input type="text" name="name[first]" id="fname"></p>
+    
+            <p><label for="last_name">Last Name:</label>
+            <input type="text" name="name[last]" id="lname"></p>
+    
+            <input value="Submit" type="submit">
+        </form>
+
+
+          <form action="" method="POST" name="myForm">
             <div class="form-group">
-                <label for="nombreCliente">Nombre</label>
-                <input type="text" class="form-control" id="nombreCliente">
+                <label for="FirstName">Nombre</label>
+                <input type="text" name="customers[FirstName]" class="form-control" id="FirstName">
+            </div> 
+
+            <div class="form-group">
+              <label for="LastNames">Apellido</label>
+              <input type="text" name="customers[LastNames]" class="form-control" id="LastNames">
             </div>
 
             <div class="form-group">
-              <label for="apellidoCliente">Apellido</label>
-              <input type="text" class="form-control" id="apellidoCliente">
+              <label for="District">Distrito</label>
+              <input type="text" name="customers[District]" class="form-control" id="District">
             </div>
 
             <div class="form-group">
-              <label for="distritoCliente">Distrito</label>
-              <input type="text" class="form-control" id="distritoCliente">
+                <label for="PrimaryAddress">Dirección</label>
+                <input type="text" name="customers[PrimaryAddress]" class="form-control" id="PrimaryAddress">
             </div>
 
             <div class="form-group">
-                <label for="direccionCliente">Dirección</label>
-                <input type="text" class="form-control" id="direccionCliente">
+              <label for="PrimaryPhone">Celular</label>
+              <input type="number" name="customers[PrimaryPhone]" class="form-control" id="PrimaryPhone">
             </div>
 
-            <div class="form-group">
-              <label for="celularCliente">Celular</label>
-              <input type="text" class="form-control" id="celularCliente">
-            </div>
-
-
-            <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+            <input value="Submit" type="button"  onclick="submitform()">
+ 
         </form>
         </div> 
  
