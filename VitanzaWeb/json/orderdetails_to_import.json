@@ -1,0 +1,196 @@
+{
+  "orderdetails": [
+    {
+      "PutRequest": {
+        "Item": {
+          "OrderDetailId_uuid": {
+            "S": "6f2df2ad-29a5-467c-a572-2d3bd607e60a"
+          },
+          "Product": {
+            "S": "1kg bag of aluminum sulfate"
+          },
+          "Quantity": {
+            "N": "6"
+          },
+          "OverridePrice": {
+            "N": "13"
+          },
+          "OrderId_uuid": {
+            "S": "cadc9933-91ad-433f-befb-c8449e70a192"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "OrderDetailId_uuid": {
+            "S": "3d8a3d17-0e01-49dd-b698-4c663d83b831"
+          },
+          "Product": {
+            "S": "1kg container of tablets"
+          },
+          "Quantity": {
+            "N": "3"
+          },
+          "OrderId_uuid": {
+            "S": "fa1e67ae-fce9-48ed-a098-aee8b9dfe56d"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "OrderDetailId_uuid": {
+            "S": "88a9a52c-b955-42ff-96ae-b6d6319b27eb"
+          },
+          "Product": {
+            "S": "1kg bag of copper sulfate"
+          },
+          "Quantity": {
+            "N": "2"
+          },
+          "OverridePrice": {
+            "N": "28"
+          },
+          "OrderId_uuid": {
+            "S": "79a1e3ea-3604-47c2-9ebc-b6cb3709e277"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "OrderDetailId_uuid": {
+            "S": "8ba8638e-5f64-4519-88f2-568f8ac3fe2a"
+          },
+          "Product": {
+            "S": "1kg bag of aluminum sulfate"
+          },
+          "Quantity": {
+            "N": "2"
+          },
+          "OrderId_uuid": {
+            "S": "cadc9933-91ad-433f-befb-c8449e70a192"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "OrderDetailId_uuid": {
+            "S": "d263b4f0-d781-4f6e-a4c2-ef01b3eb4702"
+          },
+          "Product": {
+            "S": "1kg bag of aluminum sulfate"
+          },
+          "Quantity": {
+            "N": "4"
+          },
+          "OrderId_uuid": {
+            "S": "fa1e67ae-fce9-48ed-a098-aee8b9dfe56d"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "OrderDetailId_uuid": {
+            "S": "17c00eda-0d0f-4b35-a91d-c96920d80073"
+          },
+          "Product": {
+            "S": "1gallon of sodium hypochlorite"
+          },
+          "Quantity": {
+            "N": "4"
+          },
+          "OrderId_uuid": {
+            "S": "19fc271b-6300-48bd-8e77-6ec9b70fae1e"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "OrderDetailId_uuid": {
+            "S": "f780b6aa-6ecf-4eb8-82cf-9ed9c9febc3d"
+          },
+          "Product": {
+            "S": "1kg bag of calcium hypochlorite"
+          },
+          "Quantity": {
+            "N": "9"
+          },
+          "OverridePrice": {
+            "N": "25"
+          },
+          "OrderId_uuid": {
+            "S": "19fc271b-6300-48bd-8e77-6ec9b70fae1e"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "OrderDetailId_uuid": {
+            "S": "aa2e4b9e-5ba1-4473-a274-a1d4225c0f17"
+          },
+          "Product": {
+            "S": "1kg container of tablets"
+          },
+          "Quantity": {
+            "N": "7"
+          },
+          "OverridePrice": {
+            "N": "24"
+          },
+          "OrderId_uuid": {
+            "S": "fa1e67ae-fce9-48ed-a098-aee8b9dfe56d"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "OrderDetailId_uuid": {
+            "S": "5f7e265b-ff1f-4535-83c1-61a1a2f8a212"
+          },
+          "Product": {
+            "S": "1kg bag of copper sulfate"
+          },
+          "Quantity": {
+            "N": "1"
+          },
+          "OrderId_uuid": {
+            "S": "d7bc62dd-a453-4217-9fd2-bc2a33a688ce"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "OrderDetailId_uuid": {
+            "S": "89e96074-8840-46ed-b5fe-b703721fed41"
+          },
+          "Product": {
+            "S": "1kg bag of calcium hypochlorite"
+          },
+          "Quantity": {
+            "N": "3"
+          },
+          "OrderId_uuid": {
+            "S": "d7bc62dd-a453-4217-9fd2-bc2a33a688ce"
+          }
+        }
+      }
+    }
+  ]
+}

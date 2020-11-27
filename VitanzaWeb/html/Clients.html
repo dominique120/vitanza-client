@@ -18,7 +18,7 @@
   <!-- Ionic icons-->
   <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/app.js"></script> 
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="../assets/images/favicon.png" />
@@ -89,43 +89,38 @@
             </tbody>
           </table>
         </div> 
-
-        <div class="mt-5" id="tabla-crear" >  
-          <form action="" method="POST" id="myForm" name="myForm">
-            <div class="form-group">
-                <label for="FirstName">Nombre</label>
-                <input type="text" class="form-control" id="FirstNames">
-            </div> 
-
-            <div class="form-group">
-              <label for="LastNames">Apellido</label>
-              <input type="text" class="form-control" id="LastNames">
-            </div>
-
-            <div class="form-group">
-              <label for="District">Distrito</label>
-              <input type="text" class="form-control" id="District">
-            </div>
-
-            <div class="form-group">
-                <label for="PrimaryAddress">Dirección</label>
-                <input type="text" class="form-control" id="PrimaryAddress">
-            </div>
-
-            <div class="form-group">
-              <label for="PrimaryPhone">Celular</label>
-              <input type="number" class="form-control" id="PrimaryPhone">
-            </div>
  
-            <button type="submit" class="btn btn-primary" id="btn-crear">Guardar</button> 
-        </form>
- 
+          <div class="mt-5" id="tabla-crear" >  
+            <form action="/VitanzaWeb/html/Clients.html" id="form" action="" method="POST">
+              <div class="form-group">
+                  <label for="FirstName">Nombre</label>
+                  <input type="text" name="FirstName" class="form-control" id="FirstName">
+              </div> 
+  
+              <div class="form-group">
+                <label for="LastNames">Apellido</label>
+                <input type="text" name="LastNames" class="form-control" id="LastNames">
+              </div>
+  
+              <div class="form-group">
+                <label for="District">Distrito</label>
+                <input type="text" name="District" class="form-control" id="District">
+              </div>
+  
+              <div class="form-group">
+                  <label for="PrimaryAddress">Dirección</label>
+                  <input type="text" name="PrimaryAddress" class="form-control" id="PrimaryAddress">
+              </div>
+  
+              <div class="form-group">
+                <label for="PrimaryPhone">Celular</label>
+                <input type="number" name="PrimaryPhone" class="form-control" id="PrimaryPhone">
+              </div>
+  
+              <button type="submit" class="btn btn-primary">Enviar</button>
 
-
-        </div> 
- 
-
-
+          </form>
+          </div>  
 
       </div>
  

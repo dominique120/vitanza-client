@@ -1,0 +1,95 @@
+{
+    "Items": [
+        {
+            "DatePlaced": {
+                "S": "2019-12-15"
+            },
+            "Delivered": {
+                "BOOL": true
+            },
+            "DateDelivered": {
+                "S": "2019-12-17"
+            },
+            "ClientId_uuid": {
+                "S": "4653662f-c1e0-45e2-a98b-99a2805f128b"
+            },
+            "OrderId_uuid": {
+                "S": "79a1e3ea-3604-47c2-9ebc-b6cb3709e277"
+            }
+        },
+        {
+            "DatePlaced": {
+                "S": "2020-04-02"
+            },
+            "Delivered": {
+                "BOOL": true
+            },
+            "DateDelivered": {
+                "S": "2020-04-04"
+            },
+            "ClientId_uuid": {
+                "S": "2effcecc-b953-4669-a915-e5f5fb7df846"
+            },
+            "OrderId_uuid": {
+                "S": "cadc9933-91ad-433f-befb-c8449e70a192"
+            }
+        },
+        {
+            "DatePlaced": {
+                "S": "2020-10-06"
+            },
+            "Delivered": {
+                "BOOL": false
+            },
+            "Notes": {
+                "S": "Deliver in the morning"
+            },
+            "ClientId_uuid": {
+                "S": "506bfb6a-7d3f-4ff7-bdf2-f9e841d218e8"
+            },
+            "OrderId_uuid": {
+                "S": "fa1e67ae-fce9-48ed-a098-aee8b9dfe56d"
+            }
+        },
+        {
+            "DatePlaced": {
+                "S": "2019-11-29"
+            },
+            "Delivered": {
+                "BOOL": true
+            },
+            "DateDelivered": {
+                "S": "2019-12-01"
+            },
+            "Notes": {
+                "S": "Deliver in the afternood"
+            },
+            "ClientId_uuid": {
+                "S": "506bfb6a-7d3f-4ff7-bdf2-f9e841d218e8"
+            },
+            "OrderId_uuid": {
+                "S": "19fc271b-6300-48bd-8e77-6ec9b70fae1e"
+            }
+        },
+        {
+            "DatePlaced": {
+                "S": "2020-05-15"
+            },
+            "Delivered": {
+                "BOOL": false
+            },
+            "Notes": {
+                "S": "Will come to pick up"
+            },
+            "ClientId_uuid": {
+                "S": "4653662f-c1e0-45e2-a98b-99a2805f128b"
+            },
+            "OrderId_uuid": {
+                "S": "d7bc62dd-a453-4217-9fd2-bc2a33a688ce"
+            }
+        }
+    ],
+    "Count": 5,
+    "ScannedCount": 5,
+    "ConsumedCapacity": null
+}

@@ -1,0 +1,16 @@
+{
+  "Arduino RedBoard": {
+    "marca": "Sparkfun",
+    "modelo": "Red Board Uno",
+    "Procesador": {
+      "modelo": "ATMega 328",
+      "voltaje": "5V",
+      "velocidad": "16MHZ",
+      "memoria": "32KB"
+    },
+    "puertos analogos": 6,
+    "puertos digitales": 14,
+    "puerto serial": true,
+    "puerto I2C": true
+  }
+} 

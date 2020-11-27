@@ -1,0 +1,92 @@
+{
+    "Items": [
+        {
+            "Price": {
+                "N": "29"
+            },
+            "AvailableStock": {
+                "N": "257"
+            },
+            "ProductId_uuid": {
+                "S": "295d743c-f7b3-472c-a492-a9ebb14bb242"
+            },
+            "ProductName": {
+                "S": "Copper Sulfate Powder"
+            },
+            "ProductDescription": {
+                "S": "1kg bag of copper sulfate"
+            }
+        },
+        {
+            "Price": {
+                "N": "23"
+            },
+            "AvailableStock": {
+                "N": "412"
+            },
+            "ProductId_uuid": {
+                "S": "6503f9e4-4f18-49b6-8dc3-c9db0cbec9c0"
+            },
+            "ProductName": {
+                "S": "Calcium Hypochlorite Powder"
+            },
+            "ProductDescription": {
+                "S": "1kg bag of calcium hypochlorite"
+            }
+        },
+        {
+            "Price": {
+                "N": "15"
+            },
+            "AvailableStock": {
+                "N": "341"
+            },
+            "ProductId_uuid": {
+                "S": "b7c70b7a-32e7-42ba-aadd-2abb4c5bc650"
+            },
+            "ProductName": {
+                "S": "Aluminum Sulfate Poweder"
+            },
+            "ProductDescription": {
+                "S": "1kg bag of aluminum sulfate"
+            }
+        },
+        {
+            "Price": {
+                "N": "11"
+            },
+            "AvailableStock": {
+                "N": "1532"
+            },
+            "ProductId_uuid": {
+                "S": "299b0f2b-1f16-4838-a2e1-a6b587e87b03"
+            },
+            "ProductName": {
+                "S": "Sodium Hypochlorite Liquid"
+            },
+            "ProductDescription": {
+                "S": "1gallon of sodium hypochlorite"
+            }
+        },
+        {
+            "Price": {
+                "N": "25"
+            },
+            "AvailableStock": {
+                "N": "514"
+            },
+            "ProductId_uuid": {
+                "S": "42c8f6a4-cfb9-41cf-b5a0-04eaa8a7ebdb"
+            },
+            "ProductName": {
+                "S": "Calcium Hypochlorite Tablets"
+            },
+            "ProductDescription": {
+                "S": "1kg container of tablets"
+            }
+        }
+    ],
+    "Count": 5,
+    "ScannedCount": 5,
+    "ConsumedCapacity": null
+}
