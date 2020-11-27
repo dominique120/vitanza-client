@@ -1,14 +1,14 @@
  let Auth_Bearer = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDY0NTgzNDksImlhdCI6MTYwNjQyMjM0OSwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.c5MUzz3-BI2oLrKCsjP6tl5flxRba74l1OG3V9rAbYrBrOawP3o9PWq7MpxE6QLfFLPG19zlckx997Jv8TkMTA";
  const proxyurl = "https://cors-anywhere.herokuapp.com/";
  const urlCustomers = "http://vts-alb-316342429.us-east-1.elb.amazonaws.com/vts/api/v1/customers";
- 
+
 
  function traer() {
 
-   
 
-  document.getElementById("tabla-listar").style.display = "block";
-  document.getElementById("tabla-crear").style.display = "none";
+
+   document.getElementById("tabla-listar").style.display = "block";
+   document.getElementById("tabla-crear").style.display = "none";
 
 
    fetch(proxyurl + urlCustomers, {
@@ -32,10 +32,10 @@
 
 
  function tabla(clientes) {
-   
+
    var contenido = document.querySelector('#contenido');
    console.log(clientes);
-   for (let cliente of clientes) { 
+   for (let cliente of clientes) {
      contenido.innerHTML += `
 
                    <tr>
@@ -53,52 +53,90 @@
    }
  }
 
-var formData = JSON.stringify($("#myForm").serializeArray());
-console.log(formData);
-
-function submitform(){
-  $.ajax({
-    type: "POST",
-    url: urlCustomers, 
-    data: formData,
-    success: function(){},
-    dataType: "json",
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Authorization": "Bearer " + Auth_Bearer,
-    },
-    
-    contentType : "application/json"
-  });
-}
-
  
 
- function crearForm() {
+
+ $(document).on("click", "#btn-crear", function (event) {
+      
+ console.log(formData);
+
+       var firstNames = $("#FirstNames").val();
+       var lastNames = $("#LastNames").val();
+       var district = $("#District").val();
+       var primaryAddress = $("#PrimaryAddress").val();
+       var primaryPhone = $("#PrimaryPhone").val();
+   
+ 
+
+       var ruta = "http://190.238.243.118/vts/api/v1/customersf";
+
+       var formData = new FormData();
+
+       formData.append("FirstNames", firstNames);
+       formData.append("LastNames", lastNames);
+       formData.append("District", district);
+       formData.append("PrimaryAddress", primaryAddress);
+       formData.append("PrimaryPhone", primaryPhone);
 
 
-  
 
-   document.getElementById("tabla-listar").style.display = "none";
-   document.getElementById("tabla-crear").style.display = "block";
+       fetch(ruta, {
 
- };
+         method: 'POST',
 
- // DELETE
+         body: formData
+
+       })
+      });
+
+       /*
+       function submitform(){
+
+         console.log(formData);
 
 
- $(document).on("click", ".btn-delete", function (event) {
-
-   var _this = $(this).attr("data-id");
-   console.log("id: ", _this);
-
-   const response = fetch(
-     "https://cors-anywhere.herokuapp.com/" + urlCustomers + "?id=" + _this, {
-       method: 'DELETE',
-       headers: {
-         "Access-Control-Allow-Origin": "*",
-         "Authorization": "Bearer " + Auth_Bearer,
+         $.ajax({
+           type: "POST",
+           url: "http://190.238.243.118/vts/api/v1/customersf", 
+           data: formData,
+           success: function(){},
+           dataType: "json",
+           headers: {
+             "Content-Type": "application/json",
+             "Access-Control-Allow-Origin": "*",
+             "Authorization": "Bearer " + Auth_Bearer,
+           },
+           
+           contentType : "application/json"
+         });
        }
-     });
- });
+
+        */
+
+       function crearForm() {
+
+
+
+
+         document.getElementById("tabla-listar").style.display = "none";
+         document.getElementById("tabla-crear").style.display = "block";
+
+       };
+
+       // DELETE
+
+
+       $(document).on("click", ".btn-delete", function (event) {
+
+         var _this = $(this).attr("data-id");
+         console.log("id: ", _this);
+
+         const response = fetch(
+           "https://cors-anywhere.herokuapp.com/" + urlCustomers + "?id=" + _this, {
+             method: 'DELETE',
+             headers: {
+               "Access-Control-Allow-Origin": "*",
+               "Authorization": "Bearer " + Auth_Bearer,
+             }
+           });
+       });
