@@ -2,6 +2,8 @@
  const urlCustomers = "http://vts-alb-316342429.us-east-1.elb.amazonaws.com/vts/api/v1/customers";
  
 
+
+
  function traer() {
 
    
@@ -89,8 +91,10 @@ $(document).on("click", ".btn-crear", function (event) {
 
 });
   
- 
+<a onclick='reloadDIV ();'>reload div</a>
+
   
+
 
  function crearForm() { 
 
@@ -108,7 +112,7 @@ $(document).on("click", ".btn-crear", function (event) {
    console.log("id: ", _this);
 
    const response = fetch(
-     "https://cors-anywhere.herokuapp.com/" + urlCustomers + "?id=" + _this, {
+     proxyurl + urlCustomers + "?id=" + _this, {
        method: 'DELETE',
        headers: {
          "Access-Control-Allow-Origin": "*",
