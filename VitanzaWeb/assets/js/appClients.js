@@ -1,4 +1,3 @@
- let Auth_Bearer = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDY1NDMxOTgsImlhdCI6MTYwNjUwNzE5OCwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.Ehy3seltkttGMCBhQEjH-wTMUJnnXZInNk7n63aZYB04qspynI0ODNfW2n7XL9BaLlpwIS_doZQ2YB20tFAtcg";
  const proxyurl = "https://cors-anywhere.herokuapp.com/";
  const urlCustomers = "http://vts-alb-316342429.us-east-1.elb.amazonaws.com/vts/api/v1/customers";
  
@@ -83,7 +82,9 @@ $(document).on("click", ".btn-crear", function (event) {
       'Authorization': "Bearer " + Auth_Bearer,
     },
   })
-    .then((response) => response.json())
+    .then((response) => {
+      windows.loca
+    })
     .then((json) => console.log(json))
 
 });
