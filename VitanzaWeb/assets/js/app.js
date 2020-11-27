@@ -1,4 +1,4 @@
- let Auth_Bearer = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDY0OTQ1MTUsImlhdCI6MTYwNjQ1ODUxNSwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.wB4fmWOrN4nBAD8kFptW_GQtFvy7cCyjHhDC_CfZKqq33iwS92y6b-auNnsXDsyH86FqdkFepmqilrEcVSJ13g";
+ let Auth_Bearer = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE2MDY1NDMxOTgsImlhdCI6MTYwNjUwNzE5OCwiaXNzIjoidnRzLXRlc3RpbmciLCJwYXNzd29yZCI6InBhc3N3b3JkIiwidXNlcm5hbWUiOiJ1c2VybmFtZSJ9.Ehy3seltkttGMCBhQEjH-wTMUJnnXZInNk7n63aZYB04qspynI0ODNfW2n7XL9BaLlpwIS_doZQ2YB20tFAtcg";
  const proxyurl = "https://cors-anywhere.herokuapp.com/";
  const urlCustomers = "http://vts-alb-316342429.us-east-1.elb.amazonaws.com/vts/api/v1/customers";
  
@@ -55,40 +55,38 @@
  
 // CREAR
 
-var form = document.getElementById('form')
+ 
+$(document).on("click", ".btn-crear", function (event) {
+  console.log("abc");
 
-form.addEventListener('submit', function(e){
+//event.preventDefault()
 
-// auto submision of the form
-
-e.preventDefault()
-
-var FirstName = document.getElementById('FirstName').value
-var LastNames = document.getElementById('LastNames').value
-var District = document.getElementById('District').value
-var PrimaryAddress = document.getElementById('PrimaryAddress').value
-var PrimaryPhone = document.getElementById('PrimaryPhone').value
+  var FirstName = document.getElementById('FirstName').value
+  var LastNames = document.getElementById('LastNames').value
+  var District = document.getElementById('District').value
+  var PrimaryAddress = document.getElementById('PrimaryAddress').value
+  var PrimaryPhone = document.getElementById('PrimaryPhone').value
 
 
-fetch(proxyurl + urlCustomers, {
-  method: 'POST', 
-  body: JSON.stringify({
-    FirstName: FirstName,
-    LastNames: LastNames,
-    District: District,
-    PrimaryAddress: PrimaryAddress,
-    PrimaryPhone: PrimaryPhone, 
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8', 
-    'Access-Control-Allow-Origin': '*',
-    'Authorization': "Bearer " + Auth_Bearer,
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json))
+  fetch(proxyurl + urlCustomers, {
+    method: 'POST', 
+    body: JSON.stringify({
+      FirstName: FirstName,
+      LastNames: LastNames,
+      District: District,
+      PrimaryAddress: PrimaryAddress,
+      PrimaryPhone: PrimaryPhone, 
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8', 
+      'Access-Control-Allow-Origin': '*',
+      'Authorization': "Bearer " + Auth_Bearer,
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json))
 
-})
+});
   
  
   
