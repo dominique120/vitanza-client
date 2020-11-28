@@ -26,7 +26,9 @@
 
             window.localStorage.setItem('Key', ''+ApiKey+'');
             alert('Enviado');
-            window.location.href='/VitanzaWeb/Index.html';
+
+            urlIndex = "https://isil-ep05-grupo06.s3.amazonaws.com/Index.html",
+            window.location.href=urlIndex;
 
          });
   
