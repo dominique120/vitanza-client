@@ -90,7 +90,7 @@ $(document).on("click", ".btn-crear", function (event) {
  };
 
  // DELETE 
- $(document).on("click", ".btn-delete", function (event) {
+ $(document).on("click", ".btn-delete", function (response) {
 
    var _this = $(this).attr("data-id");
    console.log("id: ", _this);
