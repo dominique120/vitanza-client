@@ -7,7 +7,7 @@
      var password = document.getElementById('password').value
 
 
-     fetch(urlAuth, {
+     fetch(proxyurl + urlAuth, {
              method: 'POST',
              body: JSON.stringify({
                  username: username,
