@@ -152,7 +152,7 @@ function traer() {
    };
   
    // DELETE 
-   $(document).on("click", ".btn-delete", function (response) {
+   $(document).on("click", ".btn-delete", function (event) {
   
      var _this = $(this).attr("data-id");
      console.log("id: ", _this);
